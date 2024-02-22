@@ -1,7 +1,14 @@
 using DjurApiLiveDemo.DataAccess;
 using DjurApiLiveDemo.DataAccess.Entities;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("PetOwnershipDb");
+builder.Services.AddDbContext<PetOwnershipDbContext>(
+    options =>
+        options.UseSqlServer(connectionString)
+    );
 
 //TODO: Maybe change lifetime?
 builder.Services.AddSingleton<PetRepository>();

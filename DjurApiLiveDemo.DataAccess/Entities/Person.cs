@@ -1,9 +1,12 @@
-﻿namespace DjurApiLiveDemo.DataAccess.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DjurApiLiveDemo.DataAccess.Entities;
 
 public class Person
 {
     public int Id { get; set; }
     public string Name { get; set; }
+    [Phone]
     public string Phone { get; set; }
     public List<Pet> Pets { get; set; }
 }
