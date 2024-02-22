@@ -28,7 +28,6 @@ app.MapGet("/pets/{id:int}", (PetRepository repo, int id) =>
 });
 
 //"/pets/{type}"	GET	string Type	Pet[]	200, 404
-
 app.MapGet("/pets/{type}", (PetRepository repo, string type) =>
 {
     var petsOfType = repo.Pets.Where(p=>p.Type.Equals(type));
@@ -58,6 +57,7 @@ app.MapGet("/people", (PeopleRepository repo) =>
 {
     return repo.People;
 });
+
 //"/people/{id}"  GET int Id	Person	200, 404
 app.MapGet("/people/{id:int}", (PeopleRepository repo, int id) =>
 {
