@@ -11,21 +11,21 @@ builder.Services.AddDbContext<PetOwnershipDbContext>(
     );
 
 //TODO: Maybe change lifetime?
-builder.Services.AddSingleton<PetRepository>();
-builder.Services.AddSingleton<PeopleRepository>();
+builder.Services.AddScoped<PetRepository>();
+builder.Services.AddScoped<PeopleRepository>();
 
 var app = builder.Build();
 
 //"/pets"	GET	NONE	Pet[]	200
-app.MapGet("/pets", (PetRepository repo) =>
+app.MapGet("/pets", async (PetRepository repo) =>
 {
-    return repo.Pets;
+    return await repo.GetAllPets();
 });
 
 // "/pets/{id}"	GET	int Id	Pet	200, 404
-app.MapGet("/pets/{id:int}", (PetRepository repo, int id) =>
+app.MapGet("/pets/{id:int}", async (PetRepository repo, int id) =>
 {
-    var pet = repo.Pets.FirstOrDefault(p=> p.Id == id);
+    var pet = await repo.GetPetById(id);
     if (pet is null)
     {
         return Results.NotFound($"No pet exists with the given Id: {id}");
@@ -35,9 +35,10 @@ app.MapGet("/pets/{id:int}", (PetRepository repo, int id) =>
 });
 
 //"/pets/{type}"	GET	string Type	Pet[]	200, 404
-app.MapGet("/pets/{type}", (PetRepository repo, string type) =>
+app.MapGet("/pets/{type}", async (PetRepository repo, string type) =>
 {
-    var petsOfType = repo.Pets.Where(p=>p.Type.Equals(type));
+    var allPets = await repo.GetAllPets();
+    var petsOfType = allPets.Where(p=>p.Type.Name.Equals(type));
     if (petsOfType is null || petsOfType.Count() <= 0)
     {
         return Results.NotFound($"No found pets of the specified type:{type}");
@@ -47,28 +48,30 @@ app.MapGet("/pets/{type}", (PetRepository repo, string type) =>
 });
 
 // "/pets"	POST	Pet	NONE	200, 400
-app.MapPost("/pets", (PetRepository repo, Pet newPet) =>
+app.MapPost("/pets", async (PetRepository repo, Pet newPet) =>
 {
-    if (repo.Pets.Any(p=>p.Id == newPet.Id))
+    var existingPet = await repo.GetPetById(newPet.Id);
+
+    if (existingPet is not null)
     {
         return Results.BadRequest($"A pet is already registered with the id: {newPet.Id}");
     }
 
-    repo.Pets.Add(newPet);
+    await repo.AddPet(newPet);
 
     return Results.Ok();
 });
 
 //"/people"   GET NONE	Person[] 200
-app.MapGet("/people", (PeopleRepository repo) =>
+app.MapGet("/people", async (PeopleRepository repo) =>
 {
-    return repo.People;
+    return await repo.GetAllPeople();
 });
 
 //"/people/{id}"  GET int Id	Person	200, 404
-app.MapGet("/people/{id:int}", (PeopleRepository repo, int id) =>
+app.MapGet("/people/{id:int}", async (PeopleRepository repo, int id) =>
 {
-    var person = repo.People.FirstOrDefault(p => p.Id == id);
+    var person = await repo.GetPersonById(id);
     if (person is null)
     {
         return Results.NotFound($"Person with id: {id} was not found!");
@@ -78,13 +81,14 @@ app.MapGet("/people/{id:int}", (PeopleRepository repo, int id) =>
 });
 
 //"/people"	POST	Person	NONE	200, 400
-app.MapPost("/people", (PeopleRepository repo, Person newPerson) =>
+app.MapPost("/people", async (PeopleRepository repo, Person newPerson) =>
 {
-    if (repo.People.Any(p => p.Id == newPerson.Id))
+    var existingPerson = await repo.GetPersonById(newPerson.Id);
+    if (existingPerson is not null)
     {
         return Results.BadRequest($"Person with the Id: {newPerson.Id} already exists");
     }
-    repo.People.Add(newPerson);
+    await repo.AddPerson(newPerson);
     return Results.Ok();
 });
 
