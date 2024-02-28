@@ -1,8 +1,9 @@
-﻿using DjurApiLiveDemo.DataAccess.Entities;
+﻿using DjurApiLiveDemo.Common.Interfaces.Services;
+using DjurApiLiveDemo.DataAccess.Entities;
 
 namespace DjurApiLiveDemo.DataAccess;
 
-public class PetRepository(PetOwnershipDbContext context)
+public class PetRepository(PetOwnershipDbContext context) : IPetService<Pet>
 {
     public async Task AddPet(Pet newPet)
     {

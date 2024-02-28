@@ -1,8 +1,9 @@
-﻿using DjurApiLiveDemo.DataAccess.Entities;
+﻿using DjurApiLiveDemo.Common.Interfaces.Services;
+using DjurApiLiveDemo.DataAccess.Entities;
 
 namespace DjurApiLiveDemo.DataAccess;
 
-public class PeopleRepository(PetOwnershipDbContext context)
+public class PeopleRepository(PetOwnershipDbContext context) : IPeopleService<Person>
 {
     public async Task<IEnumerable<Person>> GetAllPeople()
     {

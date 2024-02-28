@@ -3,9 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34601.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjurApiLiveDemo.API", "DjurApiLiveDemo.API\DjurApiLiveDemo.API.csproj", "{AF9BBF62-0114-4C72-BDE9-A29CB70DADFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DjurApiLiveDemo.API", "DjurApiLiveDemo.API\DjurApiLiveDemo.API.csproj", "{AF9BBF62-0114-4C72-BDE9-A29CB70DADFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjurApiLiveDemo.DataAccess", "DjurApiLiveDemo.DataAccess\DjurApiLiveDemo.DataAccess.csproj", "{A23B938B-4674-4A49-8ED2-AFE536013F65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DjurApiLiveDemo.DataAccess", "DjurApiLiveDemo.DataAccess\DjurApiLiveDemo.DataAccess.csproj", "{A23B938B-4674-4A49-8ED2-AFE536013F65}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{220C44DD-3343-4C0D-BF98-3416621AE9A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{DD84D3AC-5C76-4090-9E8F-AF3AB834AB53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjurApiLiveDemo.UI", "DjurApiLiveDemo.UI\DjurApiLiveDemo.UI\DjurApiLiveDemo.UI.csproj", "{797DB85E-A042-4E6F-82E7-909218C4C254}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjurApiLiveDemo.UI.Client", "DjurApiLiveDemo.UI\DjurApiLiveDemo.UI.Client\DjurApiLiveDemo.UI.Client.csproj", "{802878C7-0A43-48BD-A315-10B3E531A548}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjurApiLiveDemo.Common", "DjurApiLiveDemo.Common\DjurApiLiveDemo.Common.csproj", "{04011C55-A5B3-4966-9454-E8304B87B936}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +31,27 @@ Global
 		{A23B938B-4674-4A49-8ED2-AFE536013F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A23B938B-4674-4A49-8ED2-AFE536013F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A23B938B-4674-4A49-8ED2-AFE536013F65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{797DB85E-A042-4E6F-82E7-909218C4C254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{797DB85E-A042-4E6F-82E7-909218C4C254}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{797DB85E-A042-4E6F-82E7-909218C4C254}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{797DB85E-A042-4E6F-82E7-909218C4C254}.Release|Any CPU.Build.0 = Release|Any CPU
+		{802878C7-0A43-48BD-A315-10B3E531A548}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{802878C7-0A43-48BD-A315-10B3E531A548}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{802878C7-0A43-48BD-A315-10B3E531A548}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{802878C7-0A43-48BD-A315-10B3E531A548}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04011C55-A5B3-4966-9454-E8304B87B936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04011C55-A5B3-4966-9454-E8304B87B936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04011C55-A5B3-4966-9454-E8304B87B936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04011C55-A5B3-4966-9454-E8304B87B936}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AF9BBF62-0114-4C72-BDE9-A29CB70DADFC} = {220C44DD-3343-4C0D-BF98-3416621AE9A9}
+		{A23B938B-4674-4A49-8ED2-AFE536013F65} = {220C44DD-3343-4C0D-BF98-3416621AE9A9}
+		{797DB85E-A042-4E6F-82E7-909218C4C254} = {DD84D3AC-5C76-4090-9E8F-AF3AB834AB53}
+		{802878C7-0A43-48BD-A315-10B3E531A548} = {DD84D3AC-5C76-4090-9E8F-AF3AB834AB53}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BE98E6F1-EFA6-4A9A-A86A-7B74431803DC}
