@@ -2,33 +2,40 @@
 
 namespace DjurApiLiveDemo.DataAccess;
 
-public class PeopleRepository(PetOwnershipDbContext context)
+public class PeopleRepository
 {
+    private readonly PetOwnershipDbContext _context;
+
+    public PeopleRepository(PetOwnershipDbContext context)
+    {
+        _context = context;
+    }
+
     public async Task<IEnumerable<Person>> GetAllPeople()
     {
-        return context.People;
+        return _context.People;
     }
 
     public async Task<Person?> GetPersonById(int id)
     {
-        return await context.People.FindAsync(id);
+        return await _context.People.FindAsync(id);
     }
 
     public async Task AddPerson(Person newPerson)
     {
-        await context.People.AddAsync(newPerson);
-        await context.SaveChangesAsync();
+        await _context.People.AddAsync(newPerson);
+        await _context.SaveChangesAsync();
     }
 
     public async Task UpdatePersonName(int id, string name)
     {
-        var oldPerson = await context.People.FindAsync(id);
+        var oldPerson = await _context.People.FindAsync(id);
         if (oldPerson is null)
         {
             return;
         }
 
         oldPerson.Name = name;
-        await context.SaveChangesAsync();
+        await _context.SaveChangesAsync();
     }
 }
