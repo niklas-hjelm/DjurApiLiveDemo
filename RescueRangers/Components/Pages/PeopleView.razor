@@ -1,4 +1,6 @@
 ﻿@page "/People"
+@using DjurApiLiveDemo.Shared.Interfaces
+@inject IPeopleService<PersonDto> PeopleService
 @rendermode InteractiveServer
 <h3>PeopleView</h3>
 
@@ -22,10 +24,11 @@
 
      protected override async Task OnInitializedAsync()
      {
-          People.AddRange([
-               new PersonDto() { Name = "Niklas", Phone = "9867086" },
-               new PersonDto() { Name = "Thilde", Phone = "7647865" }
-          ]);
+          // People.AddRange([
+          //      new PersonDto() { Name = "Niklas", Phone = "9867086" },
+          //      new PersonDto() { Name = "Thilde", Phone = "7647865" }
+          // ]);
+          People.AddRange(await PeopleService.GetAllPeople());
      }
 
      private async Task AddPerson()
