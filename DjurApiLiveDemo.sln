@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34601.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjurApiLiveDemo.API", "DjurApiLiveDemo.API\DjurApiLiveDemo.API.csproj", "{AF9BBF62-0114-4C72-BDE9-A29CB70DADFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DjurApiLiveDemo.API", "DjurApiLiveDemo.API\DjurApiLiveDemo.API.csproj", "{AF9BBF62-0114-4C72-BDE9-A29CB70DADFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjurApiLiveDemo.DataAccess", "DjurApiLiveDemo.DataAccess\DjurApiLiveDemo.DataAccess.csproj", "{A23B938B-4674-4A49-8ED2-AFE536013F65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DjurApiLiveDemo.DataAccess", "DjurApiLiveDemo.DataAccess\DjurApiLiveDemo.DataAccess.csproj", "{A23B938B-4674-4A49-8ED2-AFE536013F65}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{FCE7107A-3F29-4EF4-A107-6A2EEF27F8BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{EE9D2EF3-C7D0-4287-B75A-7F6EF05C7390}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RescueRangers", "RescueRangers\RescueRangers.csproj", "{6481A6E4-3D7B-4C4F-8945-B0007AC8C846}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjurApiLiveDemo.Shared", "DjurApiLiveDemo.Shared\DjurApiLiveDemo.Shared.csproj", "{91B6D9A3-E1EF-474F-9E4F-DED005814E92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +29,22 @@ Global
 		{A23B938B-4674-4A49-8ED2-AFE536013F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A23B938B-4674-4A49-8ED2-AFE536013F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A23B938B-4674-4A49-8ED2-AFE536013F65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6481A6E4-3D7B-4C4F-8945-B0007AC8C846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6481A6E4-3D7B-4C4F-8945-B0007AC8C846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6481A6E4-3D7B-4C4F-8945-B0007AC8C846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6481A6E4-3D7B-4C4F-8945-B0007AC8C846}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91B6D9A3-E1EF-474F-9E4F-DED005814E92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91B6D9A3-E1EF-474F-9E4F-DED005814E92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91B6D9A3-E1EF-474F-9E4F-DED005814E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91B6D9A3-E1EF-474F-9E4F-DED005814E92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AF9BBF62-0114-4C72-BDE9-A29CB70DADFC} = {FCE7107A-3F29-4EF4-A107-6A2EEF27F8BF}
+		{A23B938B-4674-4A49-8ED2-AFE536013F65} = {FCE7107A-3F29-4EF4-A107-6A2EEF27F8BF}
+		{6481A6E4-3D7B-4C4F-8945-B0007AC8C846} = {EE9D2EF3-C7D0-4287-B75A-7F6EF05C7390}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BE98E6F1-EFA6-4A9A-A86A-7B74431803DC}

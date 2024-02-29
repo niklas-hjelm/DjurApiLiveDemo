@@ -1,0 +1,20 @@
+﻿@page "/People"
+@rendermode InteractiveServer
+<h3>PeopleView</h3>
+
+<EditForm Model="NewPerson">
+     <DataAnnotationsValidator />
+     <InputText @bind-Value="NewPerson.Name"></InputText>
+     <InputText @bind-Value="NewPerson.Phone"></InputText>
+     <MudButton Color="Color.Dark" ButtonType="ButtonType.Submit">Save</MudButton>
+     <ValidationSummary />
+</EditForm>
+
+<MudVirtualize>
+
+</MudVirtualize>
+
+@code {
+     private PersonDto NewPerson { get; set; } = new();
+     private List<PersonDto> People { get; set; } = new();
+}
