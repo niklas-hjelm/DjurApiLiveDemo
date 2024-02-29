@@ -32,7 +32,12 @@ public class PeopleService : IPeopleService<PersonDto>
 
      public async Task AddPerson(PersonDto newPerson)
      {
-          throw new NotImplementedException();
+          var response = await _httpClient.PostAsJsonAsync("/people", newPerson);
+
+          if (!response.IsSuccessStatusCode)
+          {
+               return;
+          }
      }
 
      public async Task UpdatePersonName(int id, string name)

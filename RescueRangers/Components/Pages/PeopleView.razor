@@ -24,17 +24,14 @@
 
      protected override async Task OnInitializedAsync()
      {
-          // People.AddRange([
-          //      new PersonDto() { Name = "Niklas", Phone = "9867086" },
-          //      new PersonDto() { Name = "Thilde", Phone = "7647865" }
-          // ]);
           People.AddRange(await PeopleService.GetAllPeople());
      }
 
      private async Task AddPerson()
      {
-          People.Add(NewPerson);
-          NewPerson = new PersonDto();
+          await PeopleService.AddPerson(NewPerson);
+          People.Clear();
+          People.AddRange(await PeopleService.GetAllPeople());
      }
 
 }
