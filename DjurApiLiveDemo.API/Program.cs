@@ -1,5 +1,6 @@
 using DjurApiLiveDemo.DataAccess;
 using DjurApiLiveDemo.DataAccess.Entities;
+using DjurApiLiveDemo.Shared.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +13,7 @@ builder.Services.AddDbContext<PetOwnershipDbContext>(
 
 //TODO: Maybe change lifetime?
 builder.Services.AddScoped<PetRepository>();
-builder.Services.AddScoped<PeopleRepository>();
+builder.Services.AddScoped<IPeopleService<Person>,PeopleRepository>();
 
 var app = builder.Build();
 
@@ -63,13 +64,13 @@ app.MapPost("/pets", async (PetRepository repo, Pet newPet) =>
 });
 
 //"/people"   GET NONE	Person[] 200
-app.MapGet("/people", async (PeopleRepository repo) =>
+app.MapGet("/people", async (IPeopleService<Person> repo) =>
 {
     return await repo.GetAllPeople();
 });
 
 //"/people/{id}"  GET int Id	Person	200, 404
-app.MapGet("/people/{id:int}", async (PeopleRepository repo, int id) =>
+app.MapGet("/people/{id:int}", async (IPeopleService<Person> repo, int id) =>
 {
     var person = await repo.GetPersonById(id);
     if (person is null)
@@ -81,7 +82,7 @@ app.MapGet("/people/{id:int}", async (PeopleRepository repo, int id) =>
 });
 
 //"/people"	POST	Person	NONE	200, 400
-app.MapPost("/people", async (PeopleRepository repo, Person newPerson) =>
+app.MapPost("/people", async (IPeopleService<Person> repo, Person newPerson) =>
 {
     var existingPerson = await repo.GetPersonById(newPerson.Id);
     if (existingPerson is not null)

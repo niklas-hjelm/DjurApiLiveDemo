@@ -14,4 +14,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DjurApiLiveDemo.Shared\DjurApiLiveDemo.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

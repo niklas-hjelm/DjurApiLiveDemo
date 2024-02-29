@@ -1,8 +1,9 @@
 ﻿using DjurApiLiveDemo.DataAccess.Entities;
+using DjurApiLiveDemo.Shared.Interfaces;
 
 namespace DjurApiLiveDemo.DataAccess;
 
-public class PeopleRepository
+public class PeopleRepository : IPeopleService<Person>
 {
     private readonly PetOwnershipDbContext _context;
 

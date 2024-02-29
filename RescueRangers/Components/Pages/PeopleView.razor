@@ -2,19 +2,36 @@
 @rendermode InteractiveServer
 <h3>PeopleView</h3>
 
-<EditForm Model="NewPerson">
+<EditForm Model="NewPerson" OnValidSubmit="AddPerson">
      <DataAnnotationsValidator />
-     <InputText @bind-Value="NewPerson.Name"></InputText>
-     <InputText @bind-Value="NewPerson.Phone"></InputText>
-     <MudButton Color="Color.Dark" ButtonType="ButtonType.Submit">Save</MudButton>
+     <MudTextField @bind-Value="NewPerson.Name"></MudTextField>
+     <MudTextField @bind-Value="NewPerson.Phone"></MudTextField>
+     <MudButton Variant="Variant.Filled" Color="Color.Dark" ButtonType="ButtonType.Submit">Save</MudButton>
      <ValidationSummary />
 </EditForm>
 
-<MudVirtualize>
-
-</MudVirtualize>
+<MudList>
+     <MudVirtualize Items="People">
+          <MudListItem>@context.Name</MudListItem>
+     </MudVirtualize>
+</MudList>
 
 @code {
      private PersonDto NewPerson { get; set; } = new();
      private List<PersonDto> People { get; set; } = new();
+
+     protected override async Task OnInitializedAsync()
+     {
+          People.AddRange([
+               new PersonDto() { Name = "Niklas", Phone = "9867086" },
+               new PersonDto() { Name = "Thilde", Phone = "7647865" }
+          ]);
+     }
+
+     private async Task AddPerson()
+     {
+          People.Add(NewPerson);
+          NewPerson = new PersonDto();
+     }
+
 }

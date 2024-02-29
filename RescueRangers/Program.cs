@@ -1,5 +1,8 @@
+using DjurApiLiveDemo.Shared.Dtos;
+using DjurApiLiveDemo.Shared.Interfaces;
 using MudBlazor.Services;
 using RescueRangers.Components;
+using RescueRangers.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +11,13 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddMudServices();
+
+builder.Services.AddHttpClient("djurApi", 
+    client => 
+        client.BaseAddress = new Uri("http://localhost:5284")
+    );
+
+builder.Services.AddScoped<IPeopleService<PersonDto>, PeopleService>();
 
 var app = builder.Build();
 
