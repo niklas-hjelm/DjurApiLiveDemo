@@ -1,4 +1,4 @@
-﻿using DjurApiLiveDemo.DataAccess.Entities;
+﻿using DjurApiLiveDemo.Shared.Entities;
 
 namespace DjurApiLiveDemo.DataAccess;
 

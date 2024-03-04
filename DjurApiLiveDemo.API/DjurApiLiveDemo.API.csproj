@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DjurApiLiveDemo.DataAccess\DjurApiLiveDemo.DataAccess.csproj" />
+    <ProjectReference Include="..\DjurApiLiveDemo.Shared\DjurApiLiveDemo.Shared.csproj" />
   </ItemGroup>
 
 </Project>

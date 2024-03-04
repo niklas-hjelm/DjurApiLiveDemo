@@ -1,0 +1,30 @@
+﻿@page "/"
+@using DjurApiLiveDemo.Shared.DTOs
+@inject IHttpClientFactory HttpClientFactory
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+@foreach (var pet in Pets)
+{
+     <h3>@pet.Id @pet.Name @pet.DateOfBirth.ToString("yy-MM-dd")</h3>
+}
+
+@code
+{
+     public List<GetPetDto> Pets { get; set; } = new();
+
+     protected override async Task OnInitializedAsync()
+     {
+          var httpClient = HttpClientFactory.CreateClient("djurApi");
+          var response = await httpClient.GetAsync("/pets");
+          if (response.IsSuccessStatusCode)
+          {
+               var pets = await response.Content.ReadFromJsonAsync<List<GetPetDto>>();
+               Pets.AddRange(pets);
+          }
+     }
+}

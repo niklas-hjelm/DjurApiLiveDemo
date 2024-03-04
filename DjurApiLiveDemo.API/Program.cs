@@ -1,5 +1,5 @@
 using DjurApiLiveDemo.DataAccess;
-using DjurApiLiveDemo.DataAccess.Entities;
+using DjurApiLiveDemo.Shared.Entities;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

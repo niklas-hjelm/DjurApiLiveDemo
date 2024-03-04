@@ -1,4 +1,4 @@
-﻿namespace DjurApiLiveDemo.DataAccess.Entities;
+﻿namespace DjurApiLiveDemo.Shared.Entities;
 
 public class AnimalType
 {

@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace DjurApiLiveDemo.DataAccess.Entities;
+﻿namespace DjurApiLiveDemo.Shared.Entities;
 
 public class Pet
 {

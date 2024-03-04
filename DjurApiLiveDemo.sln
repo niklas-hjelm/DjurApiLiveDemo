@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34601.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjurApiLiveDemo.API", "DjurApiLiveDemo.API\DjurApiLiveDemo.API.csproj", "{AF9BBF62-0114-4C72-BDE9-A29CB70DADFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DjurApiLiveDemo.API", "DjurApiLiveDemo.API\DjurApiLiveDemo.API.csproj", "{AF9BBF62-0114-4C72-BDE9-A29CB70DADFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjurApiLiveDemo.DataAccess", "DjurApiLiveDemo.DataAccess\DjurApiLiveDemo.DataAccess.csproj", "{A23B938B-4674-4A49-8ED2-AFE536013F65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DjurApiLiveDemo.DataAccess", "DjurApiLiveDemo.DataAccess\DjurApiLiveDemo.DataAccess.csproj", "{A23B938B-4674-4A49-8ED2-AFE536013F65}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{E658141E-F471-4292-A78D-A7DCFEF0EAC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{C6038E6A-A714-411E-86A5-4C0AE2785B36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjurApiLiveDemo.Shared", "DjurApiLiveDemo.Shared\DjurApiLiveDemo.Shared.csproj", "{BAEE551B-CB89-464F-A486-390DD328FDC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DjurApiLiveDemo.Client", "DjurApiLiveDemo.Client\DjurApiLiveDemo.Client.csproj", "{57A09086-11E8-46A3-94E1-1BD8772E558B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +29,22 @@ Global
 		{A23B938B-4674-4A49-8ED2-AFE536013F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A23B938B-4674-4A49-8ED2-AFE536013F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A23B938B-4674-4A49-8ED2-AFE536013F65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAEE551B-CB89-464F-A486-390DD328FDC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAEE551B-CB89-464F-A486-390DD328FDC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAEE551B-CB89-464F-A486-390DD328FDC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAEE551B-CB89-464F-A486-390DD328FDC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57A09086-11E8-46A3-94E1-1BD8772E558B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57A09086-11E8-46A3-94E1-1BD8772E558B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57A09086-11E8-46A3-94E1-1BD8772E558B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57A09086-11E8-46A3-94E1-1BD8772E558B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AF9BBF62-0114-4C72-BDE9-A29CB70DADFC} = {E658141E-F471-4292-A78D-A7DCFEF0EAC4}
+		{A23B938B-4674-4A49-8ED2-AFE536013F65} = {E658141E-F471-4292-A78D-A7DCFEF0EAC4}
+		{57A09086-11E8-46A3-94E1-1BD8772E558B} = {C6038E6A-A714-411E-86A5-4C0AE2785B36}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BE98E6F1-EFA6-4A9A-A86A-7B74431803DC}
